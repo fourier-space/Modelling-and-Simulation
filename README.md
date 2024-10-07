@@ -16,7 +16,7 @@ This module will give a view of how numeric simulations can be applied to proble
 * Represent simulation results and data graphically for understanding, exploration, and communication.
 
 ## Weekly Resources
-* [Week 1](Week 1)
+* [Week 1](./Week_1)
 
 ## Change Log
 * 1.0.0 Initial Release.
