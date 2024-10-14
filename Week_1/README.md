@@ -11,3 +11,8 @@
 * [Float Toy](https://evanw.github.io/float-toy/)
 * [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
 * [Fast inverse square root (Quake 3)](https://en.wikipedia.org/wiki/Fast_inverse_square_root)
+
+## More Resources
+* https://www.coursera.org/learn/linear-algebra-machine-learning?specialization=mathematics-machine-learning
+* https://www.coursera.org/learn/multivariate-calculus-machine-learning?specialization=mathematics-machine-learning
+* https://www.linkedin.com/learning/hands-on-start-to-wolfram-mathematica/
