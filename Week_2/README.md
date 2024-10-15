@@ -9,3 +9,4 @@
 * Explore different variations of the predator-prey model.
 * For each system, find the fixed points, and linearise about them - what are their characteristics.
 * How much can be solved analytically – can you determine the regions in parameter space?
+* Build a Mathematica toy for a Preditor-Prey model.
