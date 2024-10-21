@@ -18,6 +18,7 @@ This module will give a view of how numeric simulations can be applied to proble
 ## Weekly Resources
 * [Week 1](./Week_1)
 * [Week 2](./Week_2)
+* [Week 3](./Week_3)
 
 ## Reading List
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
