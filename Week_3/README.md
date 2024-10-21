@@ -1,4 +1,4 @@
-# Animations, Pendula, Runge Kutta Formuala
+# Animations, Pendula, Runge Kutta Formula
 * Modify the particle in a bouncing box to have be on a TV screen with a 3:4 ratio as seen in [The Office](https://www.youtube.com/watch?v=QOtuX0jL85Y)
 * Observe how the single pendulum gains energy and changes modes between simple harmonic motion and wrap-around behaviours.
 
