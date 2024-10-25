@@ -10,3 +10,7 @@
 * Add air resistance to the pendulum.
     * Using the model above
     * Using a linear in velocity model, F = -γ v
+
+* Observe the effect of the unstable point in the pendulum by setting the initial condition to `{π, 0}` which is the inverted state.
+    * Mathematically, it should stay here forever, does it?
+    * what controls for how long it is upright?
