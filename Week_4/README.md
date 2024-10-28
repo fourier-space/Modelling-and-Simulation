@@ -13,4 +13,4 @@
 * Read about Poincaré Map for the double pendulum.
 * Can you reproduce this tweet? https://x.com/j_bertolotti/status/1411987574109913092
    * There's a higher resolution and Mathematica code for it on wikimedia commons: https://commons.wikimedia.org/wiki/File:Double_pendulum_predicting_dynamics.gif ,
-   * See if you can work out what the code is doing. Bit of a warning - it takes a long time to fully run.
+   * See if you can work out what the code is doing. Bit of a warning - it takes a long time to fully run. Edit the table function to make it shorter `Table[…, {t, 0, 1, 0.3}]`.
