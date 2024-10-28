@@ -14,3 +14,5 @@
 * Can you reproduce this tweet? https://x.com/j_bertolotti/status/1411987574109913092
    * There's a higher resolution and Mathematica code for it on wikimedia commons: https://commons.wikimedia.org/wiki/File:Double_pendulum_predicting_dynamics.gif ,
    * See if you can work out what the code is doing. Bit of a warning - it takes a long time to fully run. Edit the table function to make it shorter `Table[…, {t, 0, 1, 0.3}]`.
+* Run the Mathematica code provided in this repo with an initial condition set at `state = {-12.934153936353134, 
+  10.59615330654864, -0.19807807300308317, -2.98557249710416}` – what happens - how did I construct this?
