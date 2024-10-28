@@ -12,5 +12,5 @@
 * Can you find chaotic solutions? Can you find non-chaotic areas of parameter space?
 * Read about Poincaré Map for the double pendulum.
 * Can you reproduce this tweet? https://x.com/j_bertolotti/status/1411987574109913092
-   * There's a higher resolution and Mathematic code for it on wikimedia commons: https://commons.wikimedia.org/wiki/File:Double_pendulum_predicting_dynamics.gif ,
+   * There's a higher resolution and Mathematica code for it on wikimedia commons: https://commons.wikimedia.org/wiki/File:Double_pendulum_predicting_dynamics.gif ,
    * See if you can work out what the code is doing. Bit of a warning - it takes a long time to fully run.
