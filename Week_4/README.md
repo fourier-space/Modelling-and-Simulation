@@ -1,4 +1,4 @@
-# Week 4 – Lagrangian Mechanics, Double Pendulum, Runge Kutta Falkberg Method
+# Week 4 – Lagrangian Mechanics, Double Pendulum, Runge Kutta Fehlberg Method
 
 * Look up and derive for the double pendulum system (Massless rods, massive ends)
     * The Euler-Lagrange equations.
