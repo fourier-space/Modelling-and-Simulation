@@ -28,6 +28,7 @@ Details of the [Assessment Brief](./Assessment) found here.
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 1.4.1 Assessment Brief Released.
 * 1.4.0 Week 4 Code and exercises.
 * 1.3.1 Updated week 3 code to include the Runge-Kutta solver. Added an additional question to the tutorial set.
 * 1.3.0 Week 3 exercises and mathematica code.
