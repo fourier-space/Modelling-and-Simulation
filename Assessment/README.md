@@ -6,6 +6,8 @@ For the Modelling and simulation coursework, you will pick a dynamic system to s
 Submission on Blackboard.
 
 The assessment criteria of the assignment are derived from the module's learning outcomes:
+Below, the **module learning outcomes** are in bold as top level bullet points,
+and how these form the assessement criteria of the module are the nested bullets.
 
 - **Construct numerical and mathematical models that capture the key features of a design engineering problem.**
 	- Define the scope of the system you are studying in terms of its own context.
