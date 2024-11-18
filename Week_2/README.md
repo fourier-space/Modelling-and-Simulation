@@ -1,4 +1,6 @@
 # Week 2 – Love, Predators, and Dynamic Systems
+## Matrix Diagonalisation
+See [refresher notes](./diagonalisation_notes.md).
 ## Exercises
 ### Romeo and Juliet
 * Implement the Romeo and Juliet system yourself in Mathematica
