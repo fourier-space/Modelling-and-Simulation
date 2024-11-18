@@ -1,3 +1,4 @@
+# Matrix Diagonalisation
 ## Warm-up
 If we have a matrix,
 ```math
