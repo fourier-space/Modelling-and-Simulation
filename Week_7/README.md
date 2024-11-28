@@ -7,3 +7,4 @@
 
 ## Poincaré Maps
 * Research Poincaré Maps. Can they be applied to other systems we've seen?
+* Run the Mathematica notebook to produce the final figures (may take a few minutes each!). What does this tell us about the double pendulum system?
