@@ -1,6 +1,7 @@
 # Assessment
 
-For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report of up to 2200 words with accompanying code notebook in a GitHub repository.
+For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report ~of up to 2200 words~ with accompanying code notebook in a GitHub repository.
+**Hard word limit now removed.**
 
 **Deadline: 09/12/2024 16:00**
 Submission on Blackboard.
