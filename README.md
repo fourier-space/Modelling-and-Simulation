@@ -31,6 +31,7 @@ Details of the [Assessment Brief](./Assessment) found here.
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 1.7.2 Wordcount requirement of submission removed.
 * 1.7.1 Week 7 Second session notebook.
 * 1.7.0 Week 7 Notebook and exercises.
 * 1.6.0 Week 6 Notebook and exercises.
