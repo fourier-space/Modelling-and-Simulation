@@ -1,0 +1,443 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     17516,        435]
+NotebookOptionsPosition[     16631,        412]
+NotebookOutlinePosition[     17024,        428]
+CellTagsIndexPosition[     16981,        425]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\[OpenCurlyDoubleQuote]Romeo and Juliet \
+System\[CloseCurlyDoubleQuote]", "Title",
+ CellChangeTimes->{{3.965458033360797*^9, 3.965458040346092*^9}, {
+  3.965459091213553*^9, 3.96545909189532*^9}, {3.965459123730832*^9, 
+  3.965459124557579*^9}},ExpressionUUID->"13d13909-7226-4258-a0e5-\
+6f0044ad9e4b"],
+
+Cell[TextData[{
+ "In the Romeo and Juliet system, introduced by Strogatz [1], we model the \
+pair\[CloseCurlyQuote]s attraction towards each other.\nThe variables are \
+Romeo\[CloseCurlyQuote]s attraction to Juliet, ",
+ StyleBox["R",
+  FontSlant->"Italic"],
+ ", and Juliet\[CloseCurlyQuote]s attraction to Romeo, ",
+ StyleBox["J",
+  FontSlant->"Italic"],
+ ".\nFor our starting example, Romeo becomes more attracted to Juliet when \
+she shows him attention, and Juliet the opposite \[Dash] she becomes less \
+attracted to him the more attention he shows.\nWe can define equations of \
+motion,\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"[", GridBox[{
+      {
+       RowBox[{"R", "'"}]},
+      {
+       RowBox[{"J", "'"}]}
+     }], "]"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7b2c0c6a-673d-49c3-9faf-655c4f107055"],
+ " = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"[", GridBox[{
+      {"0", "1"},
+      {
+       RowBox[{"-", "1"}], "0"}
+     }], "]"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d7b75311-4c4c-46d8-bb55-683f78d7b6b1"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"[", GridBox[{
+      {"R"},
+      {"J"}
+     }], "]"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ed7dc744-cd11-46e2-897a-f40c516e3d60"],
+ ",\nAnd from here analyse the dynamical system."
+}], "Text",
+ CellChangeTimes->{{3.965458329675029*^9, 3.9654585988475237`*^9}, {
+  3.965459128336067*^9, 3.965459191910077*^9}, {3.965459318336956*^9, 
+  3.965459324040463*^9}},ExpressionUUID->"499ffa7a-a65c-4bde-af5d-\
+cc6f23513f13"],
+
+Cell[TextData[{
+ "We\[CloseCurlyQuote]ll use an Euler forward update equation to return the \
+next state, ",
+ StyleBox["x",
+  FontSlant->"Italic"],
+ ", given a matrix for the equations of motion, ",
+ StyleBox["M",
+  FontSlant->"Italic"],
+ ", and a timestep, ",
+ StyleBox["h",
+  FontSlant->"Italic"],
+ ".\nThe following code will plot a series of interactive graphs that \
+describe the system."
+}], "Text",
+ CellChangeTimes->{{3.965459198091178*^9, 3.965459252705283*^9}, {
+  3.965466785925342*^9, 
+  3.965466786252054*^9}},ExpressionUUID->"9bbeab33-4039-4aef-af8e-\
+c69ce335d003"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"update", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"M", ",", "h"}], "}"}], "\[Function]", 
+    RowBox[{"x", "\[Function]", 
+     RowBox[{"x", "+", 
+      RowBox[{"h", " ", 
+       RowBox[{"M", ".", "x"}]}]}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"parameterSpace", "=", 
+   RowBox[{"ParametricPlot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "t"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox[
+          SuperscriptBox["t", "2"], "4"], ",", "t"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"PlotRange", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Determinant \[Dash] \[CapitalDelta]\>\"", ",", 
+        " ", "\"\<Trace \[Dash] \[Tau]\>\""}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Thick", ",", "Gray"}], "]"}]}], ",", 
+     RowBox[{"Frame", "->", "True"}], ",", 
+     RowBox[{
+     "PlotLabel", 
+      "->", "\"\<\!\(\*StyleBox[\"Parameter\",FontWeight->\"Bold\"]\)\!\(\*\
+StyleBox[\" \
+\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\"Space\",FontWeight->\"Bold\"]\)\>\"\
+"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"matrix", "=", 
+         RowBox[{"(", GridBox[{
+            {"a", "b"},
+            {"c", "d"}
+           }], ")"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"stepSize", "=", "0.001"}], ",", "\[IndentingNewLine]", 
+        "step", ",", "\[IndentingNewLine]", "Xs", ",", "\[IndentingNewLine]", 
+        "eigs"}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"step", "=", 
+        RowBox[{"update", "[", 
+         RowBox[{"matrix", ",", "stepSize"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Xs", "=", 
+        RowBox[{"NestList", "[", 
+         RowBox[{"step", ",", 
+          RowBox[{"{", 
+           RowBox[{"R0", ",", "J0"}], "}"}], ",", 
+          RowBox[{"Floor", "[", 
+           RowBox[{"10", "/", "stepSize"}], "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"eigs", "=", 
+        RowBox[{"Eigenvectors", "[", "matrix", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Labeled", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"DisplayForm", "[", "matrix", "]"}], ",", "Large"}], 
+            "]"}], ",", 
+           RowBox[{"Style", "[", 
+            
+            RowBox[{"\"\<\!\(\*StyleBox[\"Characteristic\",FontWeight->\"Bold\
+\"]\)\!\(\*StyleBox[\" \
+\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\"Matrix\",FontWeight->\"Bold\"]\)\>\
+\"", ",", "Medium", ",", "Gray"}], "]"}], ",", "Top", ",", 
+           RowBox[{"Spacings", "->", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", " ", "1"}], "}"}]}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{"parameterSpace", ",", "\[IndentingNewLine]", 
+           RowBox[{"ListPlot", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Det", "[", "matrix", "]"}], ",", 
+                RowBox[{"Tr", "[", "matrix", "]"}]}], "}"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "->", 
+              RowBox[{"Directive", "[", 
+               RowBox[{
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", "Red"}], 
+               "]"}]}]}], "]"}]}], "\[IndentingNewLine]", "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Show", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"StreamPlot", "[", 
+            RowBox[{
+             RowBox[{"matrix", ".", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", "J"}], "}"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"R", ",", 
+               RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"J", ",", 
+               RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", 
+             RowBox[{"Epilog", "->", 
+              RowBox[{"{", 
+               RowBox[{"Red", ",", 
+                RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+                RowBox[{"Point", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"R0", ",", "J0"}], "}"}], "]"}], ",", "Black", ",", 
+                " ", 
+                RowBox[{"Point", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"0", ",", "0"}], "}"}], "]"}]}], "}"}]}], ",", 
+             RowBox[{"FrameLabel", "->", 
+              RowBox[{"{", 
+               
+               RowBox[{"\"\<Romeo's Interest \[Dash] \
+\!\(\*StyleBox[\"R\",FontSlant->\"Italic\"]\)\>\"", ",", 
+                " ", "\"\<Juliet's Interest \[Dash] \
+\!\(\*StyleBox[\"J\",FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+             RowBox[{"PlotRangePadding", "->", "None"}], ",", 
+             RowBox[{
+             "PlotLabel", 
+              "->", "\"\<\!\(\*StyleBox[\"Phase\",FontWeight->\"Bold\"]\)\!\(\
+\*StyleBox[\" \",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\"Space\",FontWeight->\
+\"Bold\"]\)\>\""}]}], "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"ListPlot", "[", 
+            RowBox[{"Xs", ",", 
+             RowBox[{"PlotStyle", "->", "Red"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"ParametricPlot", "[", 
+            RowBox[{
+             RowBox[{"eigs", "*", "t"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+             RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ListPlot", "[", 
+          RowBox[{
+           RowBox[{"Map", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Transpose", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"Range", "[", 
+                    RowBox[{"Length", "[", "Xs", "]"}], "]"}], "-", "1"}], 
+                   ")"}], "stepSize"}], ",", "#"}], "}"}], "]"}], "&"}], ",", 
+             
+             RowBox[{"Transpose", "[", "Xs", "]"}]}], "]"}], ",", 
+           RowBox[{"Frame", "->", "True"}], ",", 
+           RowBox[{"FrameLabel", "->", 
+            RowBox[{"{", 
+             
+             RowBox[{"\"\<Time \[Dash] \
+\!\(\*StyleBox[\"t\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \",FontSlant->\
+\"Italic\"]\)\!\(\*StyleBox[\"/\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\" \
+\",FontSlant->\"Italic\"]\)weeks\>\"", ",", 
+              " ", "\"\<Interest \[Dash] \
+\!\(\*StyleBox[\"R\",FontSlant->\"Italic\"]\), \
+\!\(\*StyleBox[\"J\",FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+           RowBox[{"PlotLegends", "->", 
+            RowBox[{"Placed", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               
+               RowBox[{"\"\<Romeo \[Dash] \
+\!\(\*StyleBox[\"R\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSlant->\
+\"Italic\"]\)\!\(\*StyleBox[\"t\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\")\"\
+,FontSlant->\"Italic\"]\)\>\"", ",", 
+                " ", "\"\<Juliet \[Dash] \
+\!\(\*StyleBox[\"J\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\"(\",FontSlant->\
+\"Italic\"]\)\!\(\*StyleBox[\"t\",FontSlant->\"Italic\"]\)\!\(\*StyleBox[\")\"\
+,FontSlant->\"Italic\"]\)\>\""}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"Right", ",", " ", "Top"}], "}"}]}], "]"}]}], ",", 
+           RowBox[{"PlotRangePadding", "->", 
+            RowBox[{"{", 
+             RowBox[{"None", ",", 
+              RowBox[{"Scaled", "[", "0.02", "]"}]}], "}"}]}], ",", 
+           RowBox[{"PlotRange", "->", "Full"}], ",", 
+           RowBox[{"ImageSize", "->", "Large"}], ",", 
+           RowBox[{
+           "PlotLabel", 
+            "->", "\"\<\!\(\*StyleBox[\"Time\",FontWeight->\"Bold\"]\)\!\(\*\
+StyleBox[\" \
+\",FontWeight->\"Bold\"]\)\!\(\*StyleBox[\"Evolution\",FontWeight->\"Bold\"]\)\
+\>\""}]}], "]"}]}], "\[IndentingNewLine]", "}"}]}]}], "]"}], "//", 
+    RowBox[{
+     RowBox[{"GraphicsRow", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"ImageSize", "->", "Full"}]}], "]"}], "&"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "0."}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "1."}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d", ",", "0."}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"R0", ",", "1"}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"J0", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.9379110894939127`*^9, 3.937911201856257*^9}, {
+   3.9379112760634413`*^9, 3.937911293295619*^9}, {3.937911401736107*^9, 
+   3.937911485407545*^9}, {3.937911561920122*^9, 3.937911654542313*^9}, {
+   3.937911741986966*^9, 3.937911939538521*^9}, {3.937911984920393*^9, 
+   3.937912023289328*^9}, {3.937912125033498*^9, 3.937912154325984*^9}, {
+   3.9379122110242567`*^9, 3.93791221252414*^9}, {3.937912991216565*^9, 
+   3.937913105525215*^9}, 3.937913139561195*^9, {3.937913247866438*^9, 
+   3.93791329658127*^9}, {3.93791333664538*^9, 3.9379133399865847`*^9}, {
+   3.937913402529367*^9, 3.937913404835827*^9}, {3.9379134421412687`*^9, 
+   3.937913599494782*^9}, {3.937913651575185*^9, 3.937913690813191*^9}, {
+   3.937913726861411*^9, 3.9379138217644672`*^9}, {3.9379138817077703`*^9, 
+   3.937913925931933*^9}, {3.937913970159855*^9, 3.937914000511677*^9}, {
+   3.937972381884527*^9, 3.937972413003469*^9}, {3.9654541860841827`*^9, 
+   3.965454253936112*^9}, {3.965454430509424*^9, 3.9654544347087383`*^9}, {
+   3.965454769413316*^9, 3.965454942118618*^9}, {3.965454973249069*^9, 
+   3.9654549859878073`*^9}, {3.9654550204093533`*^9, 3.965455219701898*^9}, {
+   3.9654552899753313`*^9, 3.965455297569175*^9}, {3.965455407297205*^9, 
+   3.965455438019021*^9}, {3.965455655375536*^9, 3.965455739583438*^9}, {
+   3.965455789984028*^9, 3.965455835767633*^9}, {3.965455968702054*^9, 
+   3.965455989796033*^9}, {3.9654560204856577`*^9, 3.965456058755662*^9}, {
+   3.965456097807846*^9, 3.965456186050692*^9}, {3.965456223621827*^9, 
+   3.965456224001523*^9}, {3.9654562577066793`*^9, 3.9654563293021708`*^9}, {
+   3.9654563681795797`*^9, 3.9654563910647793`*^9}, {3.965456439006268*^9, 
+   3.965456518850874*^9}, {3.965456553017908*^9, 3.965456553714656*^9}, {
+   3.965456801351564*^9, 3.9654568387091837`*^9}, {3.965456890977283*^9, 
+   3.965456955475419*^9}, {3.965457000044972*^9, 3.965457001291359*^9}, {
+   3.9654570336692877`*^9, 3.96545705118687*^9}, {3.965457085544393*^9, 
+   3.9654571496430597`*^9}, {3.965457231082589*^9, 3.9654572384158077`*^9}, {
+   3.965457290494742*^9, 3.96545742284715*^9}, {3.965457453891284*^9, 
+   3.965457463374857*^9}, {3.965457554026329*^9, 3.965457623020911*^9}, {
+   3.965457659851894*^9, 3.965457678734832*^9}, {3.965457722941573*^9, 
+   3.965457757050667*^9}, {3.965457809731532*^9, 3.9654578434104156`*^9}, {
+   3.965457933442958*^9, 3.965457938005835*^9}, {3.96545821033567*^9, 
+   3.96545826493399*^9}, {3.965458682278359*^9, 3.965458717107432*^9}, {
+   3.965466370549103*^9, 3.965466374233821*^9}, {3.965466778672291*^9, 
+   3.9654667794044323`*^9}, {3.9654668994340887`*^9, 3.965466908960832*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"ce9c8924-ac98-4c9b-96cf-0a71db2bafe6"],
+
+Cell[CellGroupData[{
+
+Cell["References", "Section",
+ CellChangeTimes->{{3.9403171850260773`*^9, 3.940317196630439*^9}, 
+   3.9654590721487017`*^9},ExpressionUUID->"b3e37627-81a8-4ce2-b3f2-\
+9dfca324b70f"],
+
+Cell[TextData[{
+ "[1] Strogatz, Steven H. ",
+ StyleBox["Nonlinear Dynamics and Chaos\:202f: With Applications to Physics, \
+Biology, Chemistry, and Engineering",
+  FontSlant->"Italic"],
+ ". Second edition. Boca Raton, FL\:202f; CRC Press, Taylor & Francis Group, \
+2018. Print.\nChapter 5"
+}], "Text",
+ CellChangeTimes->{{3.940317205904196*^9, 3.940317247332981*^9}, {
+  3.940317284712966*^9, 3.9403173120216017`*^9}, {3.9403173640718937`*^9, 
+  3.940317371468948*^9}, {3.96545907404529*^9, 
+  3.965459088094905*^9}},ExpressionUUID->"62ed2a33-901f-40d8-baf3-\
+a1391f48f66e"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1407, 855},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"14.2 for Linux x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ed20ff3d-f342-45f6-b88d-b550c4a59eaf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 309, 5, 96, "Title",ExpressionUUID->"13d13909-7226-4258-a0e5-6f0044ad9e4b"],
+Cell[888, 29, 1579, 47, 157, "Text",ExpressionUUID->"499ffa7a-a65c-4bde-af5d-cc6f23513f13"],
+Cell[2470, 78, 580, 17, 55, "Text",ExpressionUUID->"9bbeab33-4039-4aef-af8e-c69ce335d003"],
+Cell[3053, 97, 12766, 290, 888, "Input",ExpressionUUID->"ce9c8924-ac98-4c9b-96cf-0a71db2bafe6"],
+Cell[CellGroupData[{
+Cell[15844, 391, 182, 3, 65, "Section",ExpressionUUID->"b3e37627-81a8-4ce2-b3f2-9dfca324b70f"],
+Cell[16029, 396, 574, 12, 55, "Text",ExpressionUUID->"62ed2a33-901f-40d8-baf3-a1391f48f66e"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
