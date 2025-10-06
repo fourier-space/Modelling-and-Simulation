@@ -16,7 +16,8 @@ This module will give a view of how numeric simulations can be applied to proble
 * Represent simulation results and data graphically for understanding, exploration, and communication.
 
 ## Assessment
-Details of the [Assessment Brief](./Assessment) found here.
+<!-- Details of the [Assessment Brief](./Assessment) found here. -->
+**Releasing Tomorrow!**
 
 ## Weekly Resources
 * [Week 1 – Love, Predators, and Dynamic Systems](./Week_1)

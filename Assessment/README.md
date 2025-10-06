@@ -1,14 +1,16 @@
 # Assessment
 
-For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report ~of up to 2200 words~ with accompanying code notebook in a GitHub repository.
-**Hard word limit now removed.**
+**Releasing Tomorrow!**
 
-**Deadline: 09/12/2024 16:00**
+<!--
+For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report (No word limit, Anchor to 3000 words) with accompanying code notebook in a GitHub repository.
+
+**Deadline: 11/12/2024 16:00**
 Submission on Blackboard.
 
 The assessment criteria of the assignment are derived from the module's learning outcomes:
 Below, the **module learning outcomes** are in bold as top level bullet points,
-and how these form the assessement criteria of the module are the nested bullets.
+and how these form the assessment criteria of the module are the nested bullets.
 
 - **Construct numerical and mathematical models that capture the key features of a design engineering problem.**
 	- Define the scope of the system you are studying in terms of its own context.
@@ -41,4 +43,4 @@ You can take your model in numerous directions as you wish, some suggestions bei
 * Defensive strategies and interventions.
 * Long term zombie strategy.
 
-If zombies aren't your thing, you're welcome to choose a different theme, so long as you are able to meet the assessment criteria above. Discuss with me if you want to check you're heading in the right direction.
+If zombies aren't your thing, you're welcome to choose a different theme, so long as you are able to meet the assessment criteria above. Discuss with me if you want to check you're heading in the right direction. -->
