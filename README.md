@@ -19,7 +19,9 @@ This module will give a view of how numeric simulations can be applied to proble
 Details of the [Assessment Brief](./Assessment) found here.
 
 ## Weekly Resources
-* [Week 1](./Week_1)
+* [Week 1 – Love, Predators, and Dynamic Systems](./Week_1)
+
+### Last Year's Resources
 * [Week 2](./Week_2)
 * [Week 3](./Week_3)
 * [Week 4](./Week_4)
