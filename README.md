@@ -1,8 +1,8 @@
 # Modelling and Simulation – Module Handbook – 2024/25 – DESE71019
 ```json
 {
-    "Version": "1.7.1",
-    "Updated": "2024-11-28"
+    "Version": "2.0.0",
+    "Updated": "2025-10-06"
 }
 ```
 This module will give a view of how numeric simulations can be applied to problems in Design Engineering (and some problems selected from physical, biological, and social sciences). An underpinning of numerical methods, algorithms, and analysis tools will complement applications to a range of systems, such as infection modelling and crowd dynamics. We will explore how results can be interpreted, visualised, and how much we should trust them with tools to analyse these questions. The module will range from numeric underpinning to chaos and game theory with a range of applications that will give an early career researcher a window into the range of tools available to them.
@@ -31,17 +31,4 @@ Details of the [Assessment Brief](./Assessment) found here.
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
-* 1.7.2 Wordcount requirement of submission removed.
-* 1.7.1 Week 7 Second session notebook.
-* 1.7.0 Week 7 Notebook and exercises.
-* 1.6.0 Week 6 Notebook and exercises.
-* 1.5.0 Week 5 Notebook.
-* 1.4.2 RKF Notebooks in week 4.
-* 1.4.1 Assessment Brief Released.
-* 1.4.0 Week 4 Code and exercises.
-* 1.3.1 Updated week 3 code to include the Runge-Kutta solver. Added an additional question to the tutorial set.
-* 1.3.0 Week 3 exercises and mathematica code.
-* 1.2.1 Additional Week 2 note on diagonalisation – launched github page.
-* 1.2.0 Week 2 resources.
-* 1.0.1 Additional Week 1 resources.
-* 1.0.0 Initial Release.
+* 2.0.0 Initial Release.
