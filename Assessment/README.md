@@ -1,11 +1,10 @@
 # Assessment
 
-**Releasing Tomorrow!**
+**To be attempted in pairs or individually**
 
-<!--
 For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report (No word limit, Anchor to 3000 words) with accompanying code notebook in a GitHub repository.
 
-**Deadline: 11/12/2024 16:00**
+**Deadline: 11/12/2025 16:00**
 Submission on Blackboard.
 
 The assessment criteria of the assignment are derived from the module's learning outcomes:
@@ -43,4 +42,4 @@ You can take your model in numerous directions as you wish, some suggestions bei
 * Defensive strategies and interventions.
 * Long term zombie strategy.
 
-If zombies aren't your thing, you're welcome to choose a different theme, so long as you are able to meet the assessment criteria above. Discuss with me if you want to check you're heading in the right direction. -->
+If zombies aren't your thing, you're welcome to choose a different theme, so long as you are able to meet the assessment criteria above. Discuss with me if you want to check you're heading in the right direction.
