@@ -19,18 +19,19 @@ This module will give a view of how numeric simulations can be applied to proble
 Details of the [Assessment Brief](./Assessment) found here.
 
 ## Weekly Resources
-* [Week 1 – Love, Predators, and Dynamic Systems](./Week_1)
+* [Love, Predators, and Dynamic Systems](./Love_predators_dynamic_systems)
+* [Pendulum Systems and Runge Kutta Methods](./Pendula_and_Runge_Kutta)
 
 ### Last Year's Resources
-* [Week 2](./Week_2)
-* [Week 3](./Week_3)
-* [Week 4](./Week_4)
-* [Week 5](./Week_5)
-* [Week 6](./Week_6)
-* [Week 7](./Week_7)
+* [IEEE Floats and Numeric Error](./Numeric_error)
+* [Double Pendulum](./Week_4)
+* [Bifurcations](./Week_5)
+* [Limit Cycles](./Week_6)
+* [Newton Methods Poincaré maps](./Week_7)
 
 ## Reading List
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 2.1.0 Runge Kutta.
 * 2.0.0 Initial Release.
