@@ -1,0 +1,705 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     25938,        697]
+NotebookOptionsPosition[     23338,        647]
+NotebookOutlinePosition[     23756,        664]
+CellTagsIndexPosition[     23713,        661]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Predator Prey with Logistic Growth", "Title",
+ CellChangeTimes->{{3.971762094290435*^9, 
+  3.9717621083860273`*^9}},ExpressionUUID->"31b19fcf-9fc6-4321-a841-\
+cc85bbb1402e"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s set up a predator-prey system of foxes, ",
+ StyleBox["p",
+  FontSlant->"Italic"],
+ ", and rabbits, ",
+ StyleBox["r",
+  FontSlant->"Italic"],
+ ", using scaled coordinates",
+ ".\nIn this system, rabbits grow with a logistic growth to a carrying \
+capacity ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["r", "\[Infinity]"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "73dc35bf-900e-4c8e-949e-d0f2f8e1fb5a"],
+ " (",
+ StyleBox["rInf",
+  FontSlant->"Italic"],
+ ").\nThey are eaten by foxes following a mass action behaviour, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"p", " ", "r"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c334df19-5459-4ce6-a44a-ad6ea9407f84"],
+ ".\nFoxes population grow by the same mass action behaviour, with a \
+parameter ",
+ Cell[BoxData[
+  FormBox["\[CapitalGamma]", TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSlant->"Italic",ExpressionUUID->
+  "b974917a-8e89-44bb-b863-119f7e5ae624"],
+ " which is a ratio of foxes supported to rabbits eaten (expressed in scaled \
+units of rabbits and foxes).\nIf foxes don\[CloseCurlyQuote]t eat rabbits, \
+they will starve, with their population falling in proportion to its size.\n\
+The behaviour is encoded with derivatives,"
+}], "Text",
+ CellChangeTimes->{{3.9717621166058807`*^9, 3.971762297938738*^9}, {
+  3.971762598736895*^9, 3.971762711680365*^9}, {3.971762747113751*^9, 
+  3.971762773287779*^9}, {3.971762804098713*^9, 3.971762979877409*^9}, {
+  3.9717630758121967`*^9, 3.971763098638996*^9}, {3.971765999999263*^9, 
+  3.9717660066306963`*^9}},ExpressionUUID->"962586d4-ff5e-449f-b0d1-\
+6a71406a8b7b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "=", 
+  RowBox[{"Function", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[CapitalGamma]", ",", "rInf", ",", "r", ",", "p"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"r", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          FractionBox["r", "rInf"]}], ")"}]}], "-", 
+       RowBox[{"r", " ", "p"}]}], ",", " ", 
+      RowBox[{"\[CapitalGamma]", " ", "p", " ", 
+       RowBox[{"(", 
+        RowBox[{"r", "-", "1"}], ")"}]}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.969445012889209*^9, 3.9694451117894087`*^9}, {
+  3.9694451685143623`*^9, 3.969445182091123*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"5e71c47c-c3de-4fe4-a1e2-45c576d72be9"],
+
+Cell[BoxData[
+ RowBox[{"Function", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[CapitalGamma]", ",", "rInf", ",", "r", ",", "p"}], "}"}], ",", 
+   
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"r", " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         FractionBox["r", "rInf"]}], ")"}]}], "-", 
+      RowBox[{"r", " ", "p"}]}], ",", 
+     RowBox[{"\[CapitalGamma]", " ", "p", " ", 
+      RowBox[{"(", 
+       RowBox[{"r", "-", "1"}], ")"}]}]}], "}"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.969445112216524*^9, 3.9694452030375147`*^9, 
+  3.971761469127412*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"ec163c05-ac19-4c7a-98e2-8f9ddb81623b"]
+}, Open  ]],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s draw the stream plot and include each of the fixed \
+points.
+Physically, each of the populations should be non-negative, but we\
+\[CloseCurlyQuote]ll draw the plot into the negative region to better \
+visualise the character of fixed points.\
+\>", "Text",
+ CellChangeTimes->{{3.971763108987393*^9, 3.9717631237632923`*^9}, {
+  3.971763297595161*^9, 3.971763354190323*^9}, {3.971763424581233*^9, 
+  3.9717634425307007`*^9}},ExpressionUUID->"f2b3173e-b996-403c-acbb-\
+b37a0e371216"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"StreamPlot", "[", 
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"\[CapitalGamma]", ",", "rInf", ",", "r", ",", "p"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", 
+       RowBox[{"-", "0.5"}], ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"p", ",", 
+       RowBox[{"-", "0.5"}], ",", "3"}], "}"}], ",", 
+     RowBox[{"FrameLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Scaled Rabbits \[Dash] r\>\"", ",", 
+        " ", "\"\<Scaled Foxes \[Dash] p\>\""}], "}"}]}], ",", 
+     RowBox[{"Epilog", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+        RowBox[{"Darker", "@", "Green"}], ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], "]"}], ",", "Red", ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"rInf", ",", "0"}], "}"}], "]"}], ",", "Blue", ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", 
+           RowBox[{"1", "-", 
+            FractionBox["1", "rInf"]}]}], "}"}], "]"}]}], "}"}]}], ",", 
+     RowBox[{"GridLines", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", "0", "}"}], ",", 
+        RowBox[{"{", "0", "}"}]}], "}"}]}], ",", 
+     RowBox[{"GridLinesStyle", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"{", 
+        RowBox[{"Thick", ",", "Black"}], "}"}], "]"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalGamma]", ",", "1", ",", 
+       " ", "\"\<Fox Support \[Dash] \
+\!\(\*StyleBox[\"\[CapitalGamma]\",FontSlant->\"Italic\"]\)\>\""}], "}"}], ",",
+      "0", ",", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "rInf", ",", "2", ",", 
+       " ", "\"\<Carrying Capacity \[Dash] \
+\!\(\*SubscriptBox[StyleBox[\"r\",FontSlant->\"Italic\"], \
+\"\[Infinity]\"]\)\>\""}], "}"}], ",", "0", ",", "10"}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.969445134391189*^9, 3.969445153674786*^9}, {
+  3.969445185558022*^9, 3.9694451978190928`*^9}, {3.969445322687395*^9, 
+  3.969445394512422*^9}, {3.969445511882065*^9, 3.969445512683463*^9}, {
+  3.969446058311638*^9, 3.969446103751925*^9}, {3.969447136908052*^9, 
+  3.96944721018163*^9}, {3.96944732747268*^9, 3.969447334795665*^9}, {
+  3.9694478164580317`*^9, 3.969447833417602*^9}, {3.971761543755856*^9, 
+  3.971761654226478*^9}, {3.9717618992751703`*^9, 3.971761909419403*^9}, {
+  3.9717631565390673`*^9, 3.971763174224019*^9}, {3.971763253844531*^9, 
+  3.97176327461471*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"99cfdab5-b297-40a7-a0f2-9632711a1da2"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`rInf$$ = 2, $CellContext`\[CapitalGamma]$$ =
+     1, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[CapitalGamma]$$], 1, 
+       "Fox Support \[Dash] \
+\!\(\*StyleBox[\"\[CapitalGamma]\",FontSlant->\"Italic\"]\)"}, 0, 2, 
+      ControlType -> Manipulator}, {{
+       Hold[$CellContext`rInf$$], 2, 
+       "Carrying Capacity \[Dash] \
+\!\(\*SubscriptBox[StyleBox[\"r\",FontSlant->\"Italic\"], \
+\"\[Infinity]\"]\)"}, 0, 10, ControlType -> Manipulator}}, Typeset`size$$ = {
+    540., {258.97591145833326`, 267.56575520833326`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`rInf$$ = 2, $CellContext`\[CapitalGamma]$$ = 
+        1}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> StreamPlot[
+        $CellContext`f[$CellContext`\[CapitalGamma]$$, $CellContext`rInf$$, \
+$CellContext`r, $CellContext`p], {$CellContext`r, -0.5, 
+         3}, {$CellContext`p, -0.5, 3}, 
+        FrameLabel -> {"Scaled Rabbits \[Dash] r", "Scaled Foxes \[Dash] p"}, 
+        Epilog -> {
+          PointSize[Large], 
+          Darker[Green], 
+          Point[{0, 0}], Red, 
+          Point[{$CellContext`rInf$$, 0}], Blue, 
+          Point[{1, 1 - 1/$CellContext`rInf$$}]}, GridLines -> {{0}, {0}}, 
+        GridLinesStyle -> Directive[{Thick, Black}]], 
+      "Specifications" :> {{{$CellContext`\[CapitalGamma]$$, 1, 
+          "Fox Support \[Dash] \!\(\*StyleBox[\"\[CapitalGamma]\",FontSlant->\
+\"Italic\"]\)"}, 0, 
+         2}, {{$CellContext`rInf$$, 2, 
+          "Carrying Capacity \[Dash] \
+\!\(\*SubscriptBox[StyleBox[\"r\",FontSlant->\"Italic\"], \
+\"\[Infinity]\"]\)"}, 0, 10}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      605.6500000000001, {340.40091145833327`, 348.99075520833327`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.969445158324985*^9, {3.969445199073699*^9, 3.969445205019307*^9}, {
+   3.969445350745586*^9, 3.9694453645270243`*^9}, 3.969445395256393*^9, 
+   3.969445513546319*^9, {3.969446074754045*^9, 3.969446104324209*^9}, {
+   3.969447161805519*^9, 3.96944721117577*^9}, 3.969447335320325*^9, {
+   3.96944782041059*^9, 3.969447834238909*^9}, {3.971761547646872*^9, 
+   3.971761553450132*^9}, {3.971761603425688*^9, 3.971761654484865*^9}, {
+   3.971761900055439*^9, 3.971761909802498*^9}, 3.971763175119267*^9, 
+   3.971763279391941*^9, 3.9717635908940496`*^9, 3.971765851936441*^9, 
+   3.971766611309033*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"d67ba676-fe8d-4136-954b-42d03a0a3180"]
+}, Open  ]],
+
+Cell["\<\
+We can solve for the zeros of f to find where the fixed points are.\
+\>", "Text",
+ CellChangeTimes->{{3.971765341343598*^9, 
+  3.971765353602516*^9}},ExpressionUUID->"dbd87c37-c078-4a53-98ed-\
+b1f1b0ee4d23"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", 
+      RowBox[{"\[CapitalGamma]", ",", "rInf", ",", "r", ",", "p"}], "]"}], "==",
+      "0"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"r", ",", "p"}], "}"}]}], "]"}], "//", "FullSimplify"}]], "Input",\
+
+ CellChangeTimes->{{3.969446864074335*^9, 3.9694469043257923`*^9}, {
+  3.9694470643671293`*^9, 3.9694470670958242`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"6cb6a0c0-85c4-451d-a69f-240cfe8273d1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "\[Rule]", "rInf"}], ",", 
+     RowBox[{"p", "\[Rule]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "\[Rule]", "0"}], ",", 
+     RowBox[{"p", "\[Rule]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "\[Rule]", "1"}], ",", 
+     RowBox[{"p", "\[Rule]", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "rInf"}], "rInf"]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.969446872502646*^9, 3.96944690556597*^9, 
+  3.969447068207798*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"118ec96a-65ea-4932-a3a6-2296a3d3653b"]
+}, Open  ]],
+
+Cell["\<\
+If we calculate the Jacobian of, f, we can determine the character of the \
+fixed points.\
+\>", "Text",
+ CellChangeTimes->{{3.9717653621919727`*^9, 
+  3.9717654037253857`*^9}},ExpressionUUID->"bb3fff37-087d-4390-996b-\
+1acb2b9651b5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grad", "[", 
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"\[CapitalGamma]", ",", "rInf", ",", "r", ",", "p"}], "]"}], ",", 
+   
+   RowBox[{"{", 
+    RowBox[{"r", ",", "p"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.969447552972042*^9, 3.9694475583184977`*^9}, {
+  3.969447668214828*^9, 
+  3.9694476703468723`*^9}},ExpressionUUID->"7662de83-cc1a-49d6-895e-\
+8164c9166b13"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "-", "p", "-", 
+      FractionBox[
+       RowBox[{"2", " ", "r"}], "rInf"]}], ",", 
+     RowBox[{"-", "r"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"p", " ", "\[CapitalGamma]"}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "r"}], ")"}], " ", "\[CapitalGamma]"}]}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.969447526137659*^9, 3.96944756045942*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"cb53ca84-d9ad-4e97-9396-a04fe659c19f"]
+}, Open  ]],
+
+Cell["\<\
+Evaluating the Jacobian at one of the fixed points, then calculating the \
+eigenvalues gives us a handle of where to start.\
+\>", "Text",
+ CellChangeTimes->{{3.9717654210580873`*^9, 
+  3.971765474127203*^9}},ExpressionUUID->"bda8223b-750d-4fca-84a2-\
+719de5da202f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "-", "p", "-", 
+        FractionBox[
+         RowBox[{"2", " ", "r"}], "rInf"]}], ",", 
+       RowBox[{"-", "r"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"p", " ", "\[CapitalGamma]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "r"}], ")"}], " ", "\[CapitalGamma]"}]}], 
+      "}"}]}], "}"}], "/.", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"r", "\[Rule]", "1"}], ",", 
+     RowBox[{"p", "\[Rule]", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "rInf"}], "rInf"]}]}], "}"}]}], "//", 
+  "FullSimplify"}], "\[IndentingNewLine]", 
+ RowBox[{"Eigenvalues", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.96944767410929*^9, 3.9694477508311243`*^9}, 
+   3.969448037599925*^9, 3.969448071172504*^9},
+ CellLabel->"In[41]:=",ExpressionUUID->"7ef426b8-fa9f-4d77-97d9-c7eff418629b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "rInf"]}], ",", 
+     RowBox[{"-", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "rInf"}], ")"}], " ", "\[CapitalGamma]"}], 
+      "rInf"], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.969447702556891*^9, 3.9694477518572483`*^9}, 
+   3.969448038581894*^9, 3.969448072174621*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"16ca24e6-f328-4c78-92c7-f973e9c117df"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     RowBox[{"-", "rInf"}], "-", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["rInf", "2"], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["rInf", "3"], " ", "\[CapitalGamma]"}], "-", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["rInf", "4"], " ", "\[CapitalGamma]"}]}]]}], 
+    RowBox[{"2", " ", 
+     SuperscriptBox["rInf", "2"]}]], ",", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"-", "rInf"}], "+", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["rInf", "2"], "+", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["rInf", "3"], " ", "\[CapitalGamma]"}], "-", 
+       RowBox[{"4", " ", 
+        SuperscriptBox["rInf", "4"], " ", "\[CapitalGamma]"}]}]]}], 
+    RowBox[{"2", " ", 
+     SuperscriptBox["rInf", "2"]}]]}], "}"}]], "Output",
+ CellChangeTimes->{{3.969447702556891*^9, 3.9694477518572483`*^9}, 
+   3.969448038581894*^9, 3.969448072181641*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"978d5033-0d5f-4db8-a766-d58fe193d354"]
+}, Open  ]],
+
+Cell[TextData[{
+ "In this case we have the solution to a quadratic. We will have an behaviour \
+change when the function as a whole is zero, which happens at ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["r", "\[Infinity]"], "==", "1"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "81ff2b45-2eba-493e-92ee-634eed5109ea"],
+ ".\nThere\[CloseCurlyQuote]s also a behaviour change when the radical is \
+equal to zero. In this case, we can solve for what value of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["r", "\[Infinity]"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "79fc9536-490f-46f9-a62c-ca2fcb58c4f7"],
+ " set the discriminant to zero, and therefore is the transition point \
+between having real or complex eigenvalues, i.e. having orbits for complex \
+eigenvalues or not for real eigenvalues."
+}], "Text",
+ CellChangeTimes->{{3.9717655235258913`*^9, 3.9717655528091173`*^9}, {
+  3.971765656895965*^9, 3.971765692537809*^9}, {3.971765749509687*^9, 
+  3.971765787278536*^9}, {3.971766355046701*^9, 3.9717663874848948`*^9}, {
+  3.971766452445178*^9, 
+  3.971766519757092*^9}},ExpressionUUID->"9a01c530-a287-4a30-82a5-\
+210d5f21da06"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["rInf", "2"], "+", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["rInf", "3"], " ", "\[CapitalGamma]"}], "-", 
+     RowBox[{"4", " ", 
+      SuperscriptBox["rInf", "4"], " ", "\[CapitalGamma]"}]}], "==", "0"}], ",",
+    "rInf"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"%", "/.", 
+    RowBox[{"\[CapitalGamma]", "->", "1"}]}], ")"}], "//", "N"}]}], "Input",
+ CellChangeTimes->{{3.969448334478117*^9, 3.969448340054871*^9}, {
+  3.9694483774866447`*^9, 3.969448440960856*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"e053d18e-6578-4f9b-8d28-6e6ae7bac270"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", 
+     FractionBox[
+      RowBox[{"\[CapitalGamma]", "-", 
+       SqrtBox[
+        RowBox[{"\[CapitalGamma]", "+", 
+         SuperscriptBox["\[CapitalGamma]", "2"]}]]}], 
+      RowBox[{"2", " ", "\[CapitalGamma]"}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", 
+     FractionBox[
+      RowBox[{"\[CapitalGamma]", "+", 
+       SqrtBox[
+        RowBox[{"\[CapitalGamma]", "+", 
+         SuperscriptBox["\[CapitalGamma]", "2"]}]]}], 
+      RowBox[{"2", " ", "\[CapitalGamma]"}]]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+  3.969448429450286*^9, 3.969448448450584*^9}},
+ CellLabel->"Out[48]=",ExpressionUUID->"cdbe4ccf-bd7d-4b9c-a1d2-d68be5db2174"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", "0.`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", 
+     RowBox[{"-", "0.20710678118654757`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"rInf", "\[Rule]", "1.2071067811865475`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+  3.969448429450286*^9, 3.969448448452957*^9}},
+ CellLabel->"Out[49]=",ExpressionUUID->"9e693435-0d71-48b3-af43-14aee8dcbbf1"]
+}, Open  ]],
+
+Cell[TextData[{
+ "We can perform a similar calculation for the other fixed points, \
+summarising them,\nFixed point at {1, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "-", 
+    FractionBox["1", "rInf"]}], TraditionalForm]],ExpressionUUID->
+  "73d7ede0-5713-476c-b601-55a89b740f15"],
+ "} is stable node for ",
+ Cell[BoxData[
+  RowBox[{"1", 
+   StyleBox["<",
+    FontSlant->"Italic"], 
+   StyleBox[
+    SubscriptBox["r", 
+     StyleBox["\[Infinity]",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], "<", 
+   FractionBox[
+    RowBox[{"\[CapitalGamma]", "+", 
+     SqrtBox[
+      RowBox[{"\[CapitalGamma]", "+", 
+       SuperscriptBox["\[CapitalGamma]", "2"]}]]}], 
+    RowBox[{"2", " ", "\[CapitalGamma]"}]]}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+   3.969448429450286*^9, 3.969448448450584*^9}},ExpressionUUID->
+  "6fcba80a-4874-4668-aa79-14f9dae98774"],
+ ", is a decaying orbit for ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox[
+    SubscriptBox["r", "\[Infinity]"],
+    FontSlant->"Italic"], ">", 
+   FractionBox[
+    RowBox[{"\[CapitalGamma]", "+", 
+     SqrtBox[
+      RowBox[{"\[CapitalGamma]", "+", 
+       SuperscriptBox["\[CapitalGamma]", "2"]}]]}], 
+    RowBox[{"2", " ", "\[CapitalGamma]"}]]}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+   3.969448429450286*^9, 3.969448448450584*^9}},ExpressionUUID->
+  "dd9e6681-ca7e-4675-a9ac-22b59e8d7a07"],
+ ", and is a saddle node for ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox[
+    SubscriptBox["r", 
+     StyleBox["\[Infinity]",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], "<", "1"}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+   3.969448429450286*^9, 3.969448448450584*^9}},ExpressionUUID->
+  "7708e1ed-7578-492b-bf3d-08c5f5e58ffe"],
+ ".\nFixed point at {rInf,0} is a saddle node for ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox[
+    SubscriptBox["r", 
+     StyleBox["\[Infinity]",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], ">", "1"}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+   3.969448429450286*^9, 3.969448448450584*^9}},ExpressionUUID->
+  "a25a40e8-4060-4e27-ab4a-86baf5bf3013"],
+ " and is a stable node for ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox[
+    SubscriptBox["r", 
+     StyleBox["\[Infinity]",
+      FontSlant->"Plain"]],
+    FontSlant->"Italic"], "<", "1"}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{{3.969448381638756*^9, 3.969448397761408*^9}, {
+   3.969448429450286*^9, 3.969448448450584*^9}},ExpressionUUID->
+  "ff660c7b-6a67-48e8-8598-cb6e27c4dc80"],
+ "\nFixed point at {0,0} is always a saddle node\n(There are actually more \
+transitions, but these are the set for non-negative parameters, as a \
+mathematical system, can you find the others?)"
+}], "Text",
+ CellChangeTimes->{{3.969447995962407*^9, 3.969448057215124*^9}, {
+  3.969448599023872*^9, 3.969448652242833*^9}, {3.971765799780862*^9, 
+  3.971765917698235*^9}, {3.971766534230197*^9, 3.971766553292441*^9}, {
+  3.9717666626773977`*^9, 3.971766747365735*^9}, {3.971766815709358*^9, 
+  3.971766832508711*^9}},ExpressionUUID->"2173f684-178e-4e2a-aa55-\
+469e2a857da1"]
+}, Open  ]]
+},
+WindowSize->{1407, 855},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a87aef0c-de12-40ea-8042-b18473de8a34"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 179, 3, 145, "Title",ExpressionUUID->"31b19fcf-9fc6-4321-a841-cc85bbb1402e"],
+Cell[758, 27, 1670, 41, 249, "Text",ExpressionUUID->"962586d4-ff5e-449f-b0d1-6a71406a8b7b"],
+Cell[CellGroupData[{
+Cell[2453, 72, 726, 19, 60, "Input",ExpressionUUID->"5e71c47c-c3de-4fe4-a1e2-45c576d72be9"],
+Cell[3182, 93, 666, 19, 61, "Output",ExpressionUUID->"ec163c05-ac19-4c7a-98e2-8f9ddb81623b"]
+}, Open  ]],
+Cell[3863, 115, 513, 10, 117, "Text",ExpressionUUID->"f2b3173e-b996-403c-acbb-b37a0e371216"],
+Cell[CellGroupData[{
+Cell[4401, 129, 2818, 69, 334, "Input",ExpressionUUID->"99cfdab5-b297-40a7-a0f2-9632711a1da2"],
+Cell[7222, 200, 3567, 68, 714, "Output",ExpressionUUID->"d67ba676-fe8d-4136-954b-42d03a0a3180"]
+}, Open  ]],
+Cell[10804, 271, 217, 5, 51, "Text",ExpressionUUID->"dbd87c37-c078-4a53-98ed-b1f1b0ee4d23"],
+Cell[CellGroupData[{
+Cell[11046, 280, 497, 13, 44, "Input",ExpressionUUID->"6cb6a0c0-85c4-451d-a69f-240cfe8273d1"],
+Cell[11546, 295, 678, 21, 66, "Output",ExpressionUUID->"118ec96a-65ea-4932-a3a6-2296a3d3653b"]
+}, Open  ]],
+Cell[12239, 319, 243, 6, 51, "Text",ExpressionUUID->"bb3fff37-087d-4390-996b-1acb2b9651b5"],
+Cell[CellGroupData[{
+Cell[12507, 329, 403, 11, 44, "Input",ExpressionUUID->"7662de83-cc1a-49d6-895e-8164c9166b13"],
+Cell[12913, 342, 590, 18, 72, "Output",ExpressionUUID->"cb53ca84-d9ad-4e97-9396-a04fe659c19f"]
+}, Open  ]],
+Cell[13518, 363, 275, 6, 51, "Text",ExpressionUUID->"bda8223b-750d-4fca-84a2-719de5da202f"],
+Cell[CellGroupData[{
+Cell[13818, 373, 997, 30, 105, "Input",ExpressionUUID->"7ef426b8-fa9f-4d77-97d9-c7eff418629b"],
+Cell[14818, 405, 596, 18, 72, "Output",ExpressionUUID->"16ca24e6-f328-4c78-92c7-f973e9c117df"],
+Cell[15417, 425, 1028, 29, 86, "Output",ExpressionUUID->"978d5033-0d5f-4db8-a766-d58fe193d354"]
+}, Open  ]],
+Cell[16460, 457, 1198, 25, 183, "Text",ExpressionUUID->"9a01c530-a287-4a30-82a5-210d5f21da06"],
+Cell[CellGroupData[{
+Cell[17683, 486, 677, 17, 78, "Input",ExpressionUUID->"e053d18e-6578-4f9b-8d28-6e6ae7bac270"],
+Cell[18363, 505, 941, 25, 82, "Output",ExpressionUUID->"cdbe4ccf-bd7d-4b9c-a1d2-d68be5db2174"],
+Cell[19307, 532, 584, 15, 50, "Output",ExpressionUUID->"9e693435-0d71-48b3-af43-14aee8dcbbf1"]
+}, Open  ]],
+Cell[19906, 550, 3416, 94, 224, "Text",ExpressionUUID->"2173f684-178e-4e2a-aa55-469e2a857da1"]
+}, Open  ]]
+}
+]
+*)
+

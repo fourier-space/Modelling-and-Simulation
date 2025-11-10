@@ -33,6 +33,7 @@ Details of the [Assessment Brief](./Assessment) found here.
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 2.2.0 Uploaded [Logistic Predator Prey](./Love_predators_dynamic_systems) notebook.
 * 2.1.1 Uploaded Runge Kutta Fehlberg notebook.
 * 2.1.0 Runge Kutta.
 * 2.0.0 Initial Release.
