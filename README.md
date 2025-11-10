@@ -1,7 +1,7 @@
 # Modelling and Simulation – Module Handbook – 2024/25 – DESE71019
 ```json
 {
-    "Version": "2.2.1",
+    "Version": "2.2.2",
     "Updated": "2025-11-10"
 }
 ```
@@ -21,11 +21,11 @@ Details of the [Assessment Brief](./Assessment) found here.
 ## Weekly Resources
 * [Love, Predators, and Dynamic Systems](./Love_predators_dynamic_systems)
 * [Pendulum Systems and Runge Kutta Methods](./Pendula_and_Runge_Kutta)
+* [Bifurcations](./Bifurcations)
 
 ### Last Year's Resources
 * [IEEE Floats and Numeric Error](./Numeric_error)
 * [Double Pendulum](./Week_4)
-* [Bifurcations](./Week_5)
 * [Limit Cycles](./Week_6)
 * [Newton Methods Poincaré maps](./Week_7)
 
@@ -36,6 +36,7 @@ A sample of previous submissions can be found on [Blackbaord](https://bb.imperia
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 2.2.2 Bifurcations.
 * 2.2.1 Previous submissions.
 * 2.2.0 Uploaded [Logistic Predator Prey](./Love_predators_dynamic_systems) notebook.
 * 2.1.1 Uploaded Runge Kutta Fehlberg notebook.
