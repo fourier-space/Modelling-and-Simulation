@@ -22,12 +22,9 @@ Details of the [Assessment Brief](./Assessment) found here.
 * [Love, Predators, and Dynamic Systems](./Love_predators_dynamic_systems)
 * [Pendulum Systems and Runge Kutta Methods](./Pendula_and_Runge_Kutta)
 * [Bifurcations](./Bifurcations)
-
-### Last Year's Resources
+* [Limit Cycles, Logistic Growth, Lorenz Attractor](./Logistic_growth)
+* [Double Pendulum and Poincaré maps](./Double_pendulum)
 * [IEEE Floats and Numeric Error](./Numeric_error)
-* [Double Pendulum](./Week_4)
-* [Limit Cycles](./Week_6)
-* [Newton Methods Poincaré maps](./Week_7)
 
 ### Previous Submissions
 A sample of previous submissions can be found on [Blackbaord](https://bb.imperial.ac.uk/ultra/courses/_44936_1/cl/outline).
@@ -36,6 +33,8 @@ A sample of previous submissions can be found on [Blackbaord](https://bb.imperia
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 2.3.0 All notebooks ([Double Pendulum and Poincaré maps](./Double_pendulum), [Limit Cycles, Logistic Growth, Lorenz Attractor](./Logistic_growth), [IEEE Floats and Numeric Error](./Numeric_error)
+).
 * 2.2.2 Bifurcations.
 * 2.2.1 Previous submissions.
 * 2.2.0 Uploaded [Logistic Predator Prey](./Love_predators_dynamic_systems) notebook.
