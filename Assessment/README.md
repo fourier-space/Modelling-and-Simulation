@@ -1,5 +1,7 @@
 # Assessment
 
+**Details to be announced soon.**
+<!--
 **To be attempted in pairs or individually**
 
 For the Modelling and simulation coursework, you will pick a dynamic system to study that represents an in-context problem and report on your analysis of that system in a report (No word limit, Anchor to 3000 words) with accompanying code notebook in a GitHub repository.
@@ -43,3 +45,4 @@ You can take your model in numerous directions as you wish, some suggestions bei
 * Long term zombie strategy.
 
 If zombies aren't your thing, you're welcome to choose a different theme, so long as you are able to meet the assessment criteria above. Discuss with me if you want to check you're heading in the right direction.
+-->
