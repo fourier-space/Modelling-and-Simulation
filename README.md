@@ -1,8 +1,8 @@
 # Modelling and Simulation – Module Handbook – 2026/27 – DESE71019
 ```json
 {
-    "Version": "3.0.0",
-    "Updated": "2026-10-05"
+    "Version": "3.1.0",
+    "Updated": "2026-10-22"
 }
 ```
 This module will give a view of how numeric simulations can be applied to problems in Design Engineering (and some problems selected from physical, biological, and social sciences). An underpinning of numerical methods, algorithms, and analysis tools will complement applications to a range of systems, such as infection modelling and crowd dynamics. We will explore how results can be interpreted, visualised, and how much we should trust them with tools to analyse these questions. The module will range from numeric underpinning to chaos and game theory with a range of applications that will give an early career researcher a window into the range of tools available to them.
@@ -16,7 +16,7 @@ This module will give a view of how numeric simulations can be applied to proble
 * Represent simulation results and data graphically for understanding, exploration, and communication.
 
 ## Assessment
-Details of the <!--[Assessment Brief](./Assessment)--> Assessment Brief will be released here soon.
+Details of the [Assessment Brief](./Assessment)
 
 ## Weekly Resources
 * [Love, Predators, and Dynamic Systems](./Love_predators_dynamic_systems)
@@ -36,4 +36,5 @@ A sample of previous submissions can be found on [Blackbaord](https://bb.imperia
 * [Leganto](https://imperial.alma.exlibrisgroup.com/leganto/nui/lists/45412427350001591)
 
 ## Change Log
+* 3.1.0 Assessment details.
 * 3.0.0 Initial handbook release for 2026/27.
