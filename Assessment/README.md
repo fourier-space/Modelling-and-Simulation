@@ -1,4 +1,7 @@
-# Assessment
+---
+date created: 2025-10-28
+---
+## Assessment
 
 **To be attempted in pairs or individually**
 
@@ -31,7 +34,7 @@ and how these form the assessment criteria of the module are the nested bullets.
 	- Present Wolfram notebook code in an clear and structured manner (link to repository).
 	- Proper referencing of sources.
 
-## Theme – Circle of Life in the Animal Kingdom*
+### Theme – Circle of Life in the Animal Kingdom*
 The theme for this run is the Circle of Life in the Animal Kingdom.
 See Danby, Chapter 6.
 Come up with a model that exhibits interesting behaviour for a set of coexisting animals.
